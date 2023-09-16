@@ -27,13 +27,105 @@ function makeCalendar(yearCalendar) {
         ulDays.className = 'days';
         elemDiv.appendChild(ulDays);
 
+
+        let calendarStarted = false;
         for (let z = 0; z < yearCalendar[i].workingDays.length; z++) {
 
             var li = document.createElement("li");
-            li.appendChild(document.createTextNode(yearCalendar[i].workingDays[z].day.getDate()));
-            ulDays.appendChild(li);
+            //li.appendChild(document.createTextNode(yearCalendar[i].workingDays[z].day.getDate()));
+            if (!calendarStarted) {
+                calendarStarted = true;
+                getStartingDay(yearCalendar[i].workingDays[z].day, ulDays);
+            } else {
+                li = document.createElement("li");
+                li.appendChild(document.createTextNode(yearCalendar[i].workingDays[z].day.getDate()));
+                ulDays.appendChild(li);
+            }
+
+            //ulDays.appendChild(li);
             drawShift(yearCalendar[i].workingDays[z].turno, li);
         }
+    }
+}
+
+//busca el día de la semana en que empieza el mes para poner
+//el primer día del mes en él
+function getStartingDay(day, ulDays) {
+    if (day.getDay() == 1) {
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(day.getDate()));
+        ulDays.appendChild(li);
+    } else if (day.getDay() == 2) {
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(day.getDate()));
+        ulDays.appendChild(li);
+    }
+    else if (day.getDay() == 3) {
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(day.getDate()));
+        ulDays.appendChild(li);
+    }
+    else if (day.getDay() == 4) {
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(day.getDate()));
+        ulDays.appendChild(li);
+    }
+    else if (day.getDay() == 5) {
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(day.getDate()));
+        ulDays.appendChild(li);
+    }
+    else if (day.getDay() == 6) {
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(day.getDate()));
+        ulDays.appendChild(li);
+    }
+    else if (day.getDay() == 6) {
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        ulDays.appendChild(li);
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(day.getDate()));
+        ulDays.appendChild(li);
     }
 }
 
